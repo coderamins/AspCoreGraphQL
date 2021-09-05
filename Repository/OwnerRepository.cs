@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using AspCoreGraphQL.Contracts;
 
 public class OwnerRepository:IOwnerRepository
@@ -8,4 +10,6 @@ public class OwnerRepository:IOwnerRepository
     {
         _context=context;
     }
+
+    public IEnumerable<Owner> GetAll() => _context.Owners.ToList();
 }
